@@ -10,10 +10,6 @@ class Table extends React.Component {
         this.state = {
             saldo: new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(localStorage.getItem('saldo'))
         }
-        this.handleClick = this.handleClick.bind(this);
-    }
-    handleClick(e,i) {
-        
     }
     render() {
         const { saldo } = this.state;
@@ -57,7 +53,7 @@ class Table extends React.Component {
                         },
                         {
                             Header: 'Action',
-                            Cell: (e) => <div><span style={{ cursor: 'pointer' }}>Buy</span> <span style={{ cursor: 'pointer' }}>Sell</span></div>
+                            Cell: (e) => <div><span style={{ cursor: 'pointer' }}>Buy</span></div>
                         }
                     ]}
                     defaultSorted={[
@@ -71,8 +67,12 @@ class Table extends React.Component {
                     getTrProps={(state, rowInfo) => {
                         return {
                             onClick: (e) => {
-                                localStorage.setItem('cart', JSON.stringify(rowInfo.original));
-                                window.location = '/transaksi';
+                                if (rowInfo.original.quotes.IDR.price <= localStorage.getItem('saldo')) {
+                                    localStorage.setItem('cart', JSON.stringify(rowInfo.original));
+                                    window.location = '/transaksi';
+                                } else {
+                                    alert('Your balance is not enough');
+                                }
                             }
                         }
                     }}
