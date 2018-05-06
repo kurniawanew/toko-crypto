@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchPostsIfNeeded } from '../actions';
 import './App.css';
 
-class App extends Component {
+class TokoCrypto extends Component {
   constructor() {
     super();
     if(!localStorage.getItem('saldo')) {
@@ -38,4 +38,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(TokoCrypto);

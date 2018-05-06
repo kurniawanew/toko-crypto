@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import './index.css';
-import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import reducer from './reducers';
+import AuthApp from './router';
 
 const middleware = [thunk]
 if (process.env.NODE_ENV !== 'production') {
@@ -21,7 +21,7 @@ const store = createStore(
 
 render(
     <Provider store={store}>
-        <App />
+        <AuthApp />
     </Provider>,
     document.getElementById('root')
 );

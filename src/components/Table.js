@@ -12,11 +12,7 @@ class Table extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     handleClick(e,i) {
-        console.log(e.value);
-        console.log(i);
-        // this.setState({
-        //     saldo: 
-        // });
+        
     }
     render() {
         const { saldo } = this.state;
@@ -60,7 +56,8 @@ class Table extends React.Component {
                     getTrProps={(state, rowInfo) => {
                         return {
                             onClick: (e) => {
-                                console.log(rowInfo.original);
+                                // console.log(rowInfo.original);
+                                window.location = "/transaksi";
                             }
                         }
                     }}
