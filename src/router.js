@@ -10,6 +10,7 @@ import TokoCrypto from './components/App';
 import Login, { Auth } from './components/Login';
 import Register from './components/Register';
 import Transaction from './components/Transaction';
+import MyCrypto from './components/myCrypto';
 
 const AuthApp = () => (
     <Router>
@@ -21,6 +22,7 @@ const AuthApp = () => (
             <Route path="/register" component={Register} />
             <PrivateRoute path="/toko" component={TokoCrypto} />
             <PrivateRoute path="/transaksi" component={Transaction} />
+            <PrivateRoute path="/mycrypto" component={MyCrypto} />
         </div>
     </Router>
 );

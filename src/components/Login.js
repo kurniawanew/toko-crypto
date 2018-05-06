@@ -23,7 +23,6 @@ export const Auth = {
             .then(
                 (result) => {
                     if (!result.error) {
-                        this.isAuthenticated = true;
                         localStorage.setItem('token', result.token);
                         localStorage.setItem('user', JSON.stringify(result));
                         window.location = "/toko";
@@ -37,7 +36,9 @@ export const Auth = {
             );
     },
     signout(cb) {
-        this.isAuthenticated = false;
+        console.log('ini');
+        localStorage.removeItem('token');
+        window.location = "/login";
     }
 };
 

@@ -12,7 +12,7 @@ body {
 }
 
 #login {
-  background-color: #25AE90;
+  background-color: #42b549;
 }
 
 #register {
@@ -76,4 +76,34 @@ a {
 
 .register-link a, .login-link a{
   color: white;
+}
+
+/* The navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #42b549;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 11;
+}
+
+/* Links inside the navbar */
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+    background: #fff;
+    color: #42b549;
+}
+
+.saldo {
+  margin-top: 50px;
 }
