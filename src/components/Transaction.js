@@ -98,17 +98,20 @@ class Transaction extends React.Component {
     }
     handleChangeJual(e) {
         var myOwnJumlah = this.state.myOwn.jumlah;
+        var theValue;
         if (e.target.value > myOwnJumlah) {
             this.setState({
                 jumlahJual: myOwnJumlah,
             });
+            theValue = myOwnJumlah;
         } else {
             this.setState({
                 jumlahJual: e.target.value
             });
+            theValue = e.target.value;
         }
         this.setState({
-            hargaJual: e.target.value * this.state.cart.quotes.IDR.price
+            hargaJual: theValue * this.state.cart.quotes.IDR.price
         });
     }
     render() {
