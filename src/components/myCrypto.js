@@ -9,7 +9,7 @@ class MyCrypto extends React.Component {
         super()
         this.state = {
             saldo: new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(localStorage.getItem('saldo')),
-            myCrypto: JSON.parse(localStorage.getItem('MyCrypto'))
+            myCrypto: localStorage.getItem('MyCrypto') ? JSON.parse(localStorage.getItem('MyCrypto')) : []
         }
     }
     render() {
@@ -37,7 +37,7 @@ class MyCrypto extends React.Component {
                             Cell: (e) => <div><span style={{ cursor: 'pointer' }}>Buy</span> <span style={{ cursor: 'pointer' }}>Sell</span></div>
                         }
                     ]}
-                    defaultPageSize={this.state.myCrypto.length}
+                    defaultPageSize={this.state.myCrypto.length > 0 ? this.state.myCrypto.length : 10}
                     className="-striped -highlight"
                     getTrProps={(state, rowInfo) => {
                         return {
